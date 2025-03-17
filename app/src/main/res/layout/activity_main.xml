@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/lightGrey"> <!-- Fixed missing quote here -->
+
+    <!-- Tab Layout with Improved UI -->
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:background="#A55959"
+        android:elevation="12dp"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="3dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="?android:attr/textAppearanceMedium"
+        app:tabTextColor="@color/white"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        android:id="@+id/tablayout"
+        android:paddingVertical="5dp"/>  <!-- Added padding for better spacing -->
+
+    <!-- View Pager for Tabs -->
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager"
+        android:paddingTop="5dp"/> <!-- Small padding for better layout -->
+
+</LinearLayout>

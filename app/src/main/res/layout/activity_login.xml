@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#D9D9D9"
+    android:padding="20dp">
+
+    <!-- App Logo -->
+    <ImageView
+        android:layout_width="310dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/logo11" />
+
+    <!-- App Name -->
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/txtemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:backgroundTint="#2F4F4F"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#555555"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Password Field -->
+    <EditText
+        android:id="@+id/txtpass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:backgroundTint="#2F4F4F"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textColorHint="#555555"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"/>
+
+    <!-- Click to Sign Up -->
+    <TextView
+        android:id="@+id/txtdonthaveacc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have account? Register"
+        android:textColor="#555555"
+        android:textSize="13dp"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"/>
+
+    <!-- Sign In Button -->
+    <Button
+        android:id="@+id/btnsignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:backgroundTint="#A05252"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Google & Facebook Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btngoogle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Google"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#000000"
+            android:padding="10dp"
+            android:layout_marginEnd="10dp"/>
+
+<!--        <Button-->
+<!--            android:id="@+id/btnfacebook"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Facebook"-->
+<!--            android:backgroundTint="#3b5998"-->
+<!--            android:textColor="#FFFFFF"-->
+<!--            android:padding="10dp"/>-->
+    </LinearLayout>
+
+    <!-- Sign Up with Phone -->
+<!--    <TextView-->
+<!--        android:id="@+id/tvsignupwithphone"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Sign Up with Phone"-->
+<!--        android:textColor="#555555"-->
+<!--        android:textSize="14sp"-->
+<!--        android:layout_marginTop="20dp"/>-->
+
+</LinearLayout>

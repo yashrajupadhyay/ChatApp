@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1044441247496",
+    "project_id": "android-projectbuddymessenger",
+    "storage_bucket": "android-projectbuddymessenger.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044441247496:android:d2a8f546fe23da8e0806bd",
+        "android_client_info": {
+          "package_name": "com.example.androidproject_buddy_messenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjckLMjXAr6OlbfWqyzxJA1YTQLgIskw4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
