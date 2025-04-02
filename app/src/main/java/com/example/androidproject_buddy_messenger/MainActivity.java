@@ -62,9 +62,11 @@ public class MainActivity extends AppCompatActivity {
         else if (id == R.id.logout)
         {
            // Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-           mAuth.signOut();
+            mAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this , login.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+            finish();
             return true;
         }
 

@@ -22,9 +22,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
          {
              case  0 :
                  return  new ChatsFragment();
-
-             case 1:
-                 return new StatusFragment();
+//
+//             case 1:
+//                 return new StatusFragment();
 
             /* case 2:
                  return new CallsFragment();
@@ -34,7 +34,7 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 1;
     }
 
     @Nullable
@@ -43,14 +43,14 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         String title = null;
         if(position==0)
         {
-            title= "Chats";
+            title= "Chat";
         }
 
-        if(position==1)
-        {
-            title= "Status";
-        }
-//
+//        if(position==1)
+//        {
+//            title= "Status";
+//        }
+////
 //        if(position==2)
 //        {
 //            title= "Calls";
