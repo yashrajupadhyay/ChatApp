@@ -7,7 +7,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.androidproject_buddy_messenger.Models.Users;
@@ -19,7 +18,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -42,11 +40,11 @@ public class login extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
+
         progressDialog = new ProgressDialog(login.this);
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Please wait... Validation in progress");
 
-        // Configure Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -54,14 +52,18 @@ public class login extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        // Check if user is already signed in
         if (mAuth.getCurrentUser() != null) {
             navigateToMain();
         }
 
-        // Email & Password Login
         binding.btnsignin.setOnClickListener(view -> loginUser());
-        binding.txtdonthaveacc.setOnClickListener(view -> startActivity(new Intent(login.this, Signup.class)));
+
+        binding.txtdonthaveacc.setOnClickListener(view -> {
+            Intent intent = new Intent(login.this, Signup.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        });
+
         binding.btngoogle.setOnClickListener(view -> signInWithGoogle());
     }
 
@@ -138,6 +140,7 @@ public class login extends AppCompatActivity {
 
     private void navigateToMain() {
         Intent intent = new Intent(login.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
     }

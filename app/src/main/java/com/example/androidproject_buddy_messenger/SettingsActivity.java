@@ -16,14 +16,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
     ActivitySettingsBinding binding;
     FirebaseDatabase database;
     FirebaseAuth auth;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,51 +32,56 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         database = FirebaseDatabase.getInstance();
+
         binding.backArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed(); // Navigate back to the previous activity
+                onBackPressed();
             }
         });
 
+        // Load user data
         database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
-                        .addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Users users = snapshot.getValue(Users.class);
-                                binding.etstatus.setText(users.getStatus());
-                                binding.txtusername.setText(users.getUserName());
-                            }
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Users users = snapshot.getValue(Users.class);
+                        if (users != null) {
+                            binding.etstatus.setText(users.getStatus());
+                            binding.txtusername.setText(users.getUserName());
+                        }
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(SettingsActivity.this, "Failed to load user data", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
-                            }
-                        });
+        // Save button logic
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String username = binding.txtusername.getText().toString().trim();
+                String status = binding.etstatus.getText().toString().trim();
 
-                if(!binding.etstatus.getText().toString().equals("")&&!binding.txtusername.getText().toString().equals(""))
-                {
-                    String status = binding.etstatus.getText().toString();
-                    String username = binding.txtusername.getText().toString();
+                if (!username.isEmpty()) {
+                    HashMap<String, Object> obj = new HashMap<>();
+                    obj.put("userName", username);
 
-                    HashMap<String , Object>obj = new HashMap<>();
-                    obj.put("userName",username);
-                    obj.put("status",status);
+                    // Only update status if it's provided
+                    if (!status.isEmpty()) {
+                        obj.put("status", status);
+                    }
 
-                    database.getReference().child("Users").child(FirebaseAuth.getInstance().getUid())
+                    database.getReference().child("Users")
+                            .child(FirebaseAuth.getInstance().getUid())
                             .updateChildren(obj);
 
-                    Toast.makeText(SettingsActivity.this, "Profile Update ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SettingsActivity.this, "Profile Updated", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SettingsActivity.this, "Username is required", Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
-                    Toast.makeText(SettingsActivity.this, "Please Enter username and Status", Toast.LENGTH_SHORT).show();
-                }
-
-
             }
         });
     }

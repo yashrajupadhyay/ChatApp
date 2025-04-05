@@ -87,7 +87,7 @@ public class GroupChat extends AppCompatActivity {
                          .addOnSuccessListener(new OnSuccessListener<Void>() {
                              @Override
                              public void onSuccess(Void unused) {
-                                 Toast.makeText(GroupChat.this, "Message send ", Toast.LENGTH_SHORT).show();
+                                // Toast.makeText(GroupChat.this, "Message send ", Toast.LENGTH_SHORT).show();
                              }
                          });
             }

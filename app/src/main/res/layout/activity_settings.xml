@@ -33,13 +33,13 @@
             android:layout_height="140dp"
             android:src="@drawable/avtar" />
 
-        <!-- Add Profile Picture Icon -->
-        <ImageView
-            android:id="@+id/plus"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="-20dp"
-            app:srcCompat="@drawable/plus2" />
+<!--        &lt;!&ndash; Add Profile Picture Icon &ndash;&gt;-->
+<!--        <ImageView-->
+<!--            android:id="@+id/plus"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:layout_marginTop="-20dp"-->
+<!--            app:srcCompat="@drawable/plus2" />-->
 
         <!-- Username Input -->
         <LinearLayout

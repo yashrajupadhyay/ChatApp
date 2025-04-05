@@ -43,7 +43,7 @@
             android:layout_height="52dp"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
-            app:srcCompat="@drawable/send1"/>
+            app:srcCompat="@drawable/share2"/>
     </LinearLayout>
 
     <!-- Toolbar with Chat Header -->
@@ -99,38 +99,38 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <!-- Call Icon -->
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginEnd="16dp"
-                app:srcCompat="@drawable/call1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView5"
-                app:layout_constraintTop_toTopOf="parent"/>
+<!--            &lt;!&ndash; Call Icon &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView4"-->
+<!--                android:layout_width="25dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                app:srcCompat="@drawable/call1"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/imageView5"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
-            <!-- Video Call Icon -->
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_marginEnd="16dp"
-                app:srcCompat="@drawable/videocall1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imageView6"
-                app:layout_constraintTop_toTopOf="parent"/>
+<!--            &lt;!&ndash; Video Call Icon &ndash;&gt;-->
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView5"-->
+<!--                android:layout_width="38dp"-->
+<!--                android:layout_height="38dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                app:srcCompat="@drawable/videocall1"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@+id/imageView6"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
 
             <!-- Menu Icon -->
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                app:srcCompat="@drawable/menu"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+<!--            <ImageView-->
+<!--                android:id="@+id/imageView6"-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                app:srcCompat="@drawable/menu"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"/>-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
 

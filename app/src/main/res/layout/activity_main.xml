@@ -5,30 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background="@color/lightGrey"> <!-- Fixed missing quote here -->
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
 
-    <!-- Tab Layout with Improved UI -->
+    <!-- Material TabLayout with Modern Look -->
     <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:background="#A55959"
-        android:elevation="12dp"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicatorHeight="3dp"
-        app:tabSelectedTextColor="@color/white"
-        app:tabTextAppearance="?android:attr/textAppearanceMedium"
-        app:tabTextColor="@color/white"
+        android:layout_height="60dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/tab_background"
+        app:tabIndicatorColor="#FFFFFF"
+        app:tabIndicatorHeight="4dp"
+        app:tabSelectedTextColor="#FFFFFF"
+        app:tabTextColor="#DDDDDD"
         app:tabGravity="fill"
         app:tabMode="fixed"
-        android:id="@+id/tablayout"
-        android:paddingVertical="5dp"/>  <!-- Added padding for better spacing -->
+        android:elevation="6dp" />
 
-    <!-- View Pager for Tabs -->
+    <!-- ViewPager to hold Fragments -->
     <androidx.viewpager.widget.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/viewpager"
-        android:paddingTop="5dp"/> <!-- Small padding for better layout -->
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="none" />
 
 </LinearLayout>

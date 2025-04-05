@@ -1,118 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="#D9D9D9"
-    android:padding="20dp">
+    android:background="#F5F5F5"
+    android:padding="16dp"
+    android:fillViewport="true">
 
-  <!-- App Logo -->
-
-  <!-- App Name -->
-  <ImageView
-      android:layout_width="310dp"
-      android:layout_height="200dp"
-      android:layout_marginBottom="10dp"
-      android:src="@drawable/logo11" />
-
-  <!-- Username Field -->
-  <EditText
-      android:id="@+id/txtusername"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="Username"
-      android:backgroundTint="#2F4F4F"
-      android:padding="10dp"
-      android:textColor="#000000"
-      android:textColorHint="#555555"
-      android:layout_marginBottom="10dp"/>
-
-  <!-- Email Field -->
-  <EditText
-      android:id="@+id/txtemail"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="Email"
-      android:backgroundTint="#2F4F4F"
-      android:padding="10dp"
-      android:textColor="#000000"
-      android:textColorHint="#555555"
-      android:layout_marginBottom="10dp"/>
-
-  <!-- Password Field -->
-  <EditText
-      android:id="@+id/txtpassword"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:hint="Password"
-      android:backgroundTint="#2F4F4F"
-      android:padding="10dp"
-      android:textColor="#000000"
-      android:textColorHint="#555555"
-      android:inputType="textPassword"
-      android:layout_marginBottom="10dp"/>
-
-  <!-- Already Have Account -->
-  <TextView
-      android:id="@+id/txtAlreadyhaveaccount"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Already have Account? Login"
-      android:textStyle="bold"
-      android:textColor="#555555"
-      android:textSize="13dp"
-      android:layout_gravity="end"
-      android:layout_marginBottom="20dp"/>
-
-  <!-- Sign Up Button -->
-  <Button
-      android:id="@+id/btnsignup"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:text="Sign Up"
-      android:backgroundTint="#A05252"
-      android:textColor="#FFFFFF"
-      android:layout_marginBottom="20dp"/>
-
-  <!-- Google & Facebook Buttons -->
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="horizontal"
-      android:gravity="center">
+      android:orientation="vertical"
+      android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/btngoogle"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <!-- App Logo -->
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/logo11"
+        android:contentDescription="App Logo" />
+
+    <!-- Card-style Form Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Google"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:padding="20dp"
+        android:elevation="4dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_gravity="center"
+        android:clipToPadding="false"
+        android:backgroundTintMode="src_atop"
         android:backgroundTint="#FFFFFF"
-        android:textColor="#000000"
-        android:padding="10dp"
-        android:layout_marginEnd="10dp"/>
+        android:layout_margin="10dp"
+        android:gravity="center_horizontal"
+        android:layoutDirection="ltr"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true">
 
-<!--    <Button-->
-<!--        android:id="@+id/btnfacebook"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_weight="1"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Facebook"-->
-<!--        android:backgroundTint="#3b5998"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:padding="10dp"/>-->
+      <!-- Username Field -->
+      <EditText
+          android:id="@+id/txtusername"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Username"
+          android:background="@drawable/edittext_bg"
+          android:padding="12dp"
+          android:textColor="#000000"
+          android:textColorHint="#888888"
+          android:layout_marginBottom="16dp" />
+
+      <!-- Email Field -->
+      <EditText
+          android:id="@+id/txtemail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Email"
+          android:background="@drawable/edittext_bg"
+          android:padding="12dp"
+          android:textColor="#000000"
+          android:textColorHint="#888888"
+          android:inputType="textEmailAddress"
+          android:layout_marginBottom="16dp" />
+
+      <!-- Password Field -->
+      <EditText
+          android:id="@+id/txtpassword"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Password (min 6 letters/digits)"
+          android:background="@drawable/edittext_bg"
+          android:padding="12dp"
+          android:textColor="#000000"
+          android:textColorHint="#888888"
+          android:inputType="textPassword"
+          android:layout_marginBottom="16dp" />
+
+      <!-- Already Have an Account Text -->
+      <TextView
+          android:id="@+id/txtAlreadyhaveaccount"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Already have an account? Login"
+          android:textColor="#3F51B5"
+          android:textSize="14sp"
+          android:textStyle="bold"
+          android:layout_gravity="end"
+          android:layout_marginBottom="20dp" />
+
+      <!-- Sign Up Button -->
+      <Button
+          android:id="@+id/btnsignup"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Sign Up"
+          android:textColor="#FFFFFF"
+          android:backgroundTint="#A05252"
+          android:textStyle="bold"
+          android:layout_marginBottom="16dp" />
+
+      <!-- Divider -->
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:background="#DDDDDD"
+          android:layout_marginBottom="16dp" />
+
+      <!-- Google Sign Up -->
+      <Button
+          android:id="@+id/btngoogle"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Continue with Google"
+          android:backgroundTint="#FFFFFF"
+          android:textColor="#000000"
+          android:drawableLeft="@drawable/ic_google"
+          android:padding="12dp"
+          android:elevation="2dp" />
+    </LinearLayout>
   </LinearLayout>
-
-  <!-- Sign Up with Phone -->
-<!--  <TextView-->
-<!--      android:id="@+id/txtsignupwithphone"-->
-<!--      android:layout_width="wrap_content"-->
-<!--      android:layout_height="wrap_content"-->
-<!--      android:text="Sign Up with Phone"-->
-<!--      android:textColor="#555555"-->
-<!--      android:textSize="14sp"-->
-<!--      android:layout_marginTop="20dp"/>-->
-
-</LinearLayout>
+</ScrollView>
