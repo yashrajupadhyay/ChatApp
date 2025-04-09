@@ -6,6 +6,9 @@
   <color name="colorPrimary">#A55959</color>
  <color name="colorPrimaryDark">#095049</color>
     <color name="gray">#808080</color>  <!-- Example gray color -->
+    <color name="primaryColor">#A55959</color>
+    <color name="primaryDarkColor">#944A4A</color>
+    <color name="onPrimary">#FFFFFF</color>
 
     <color name="colorAccent">#03DAC5</color>
     <color name="lightGrey">#EDEDED</color>
