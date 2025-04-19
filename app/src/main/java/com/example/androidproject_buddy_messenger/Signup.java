@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.widget.Toast;
 
 import com.example.androidproject_buddy_messenger.Models.Users;
@@ -52,32 +53,31 @@ public class Signup extends AppCompatActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
         binding.btnsignup.setOnClickListener(view -> {
-            if (!binding.txtusername.getText().toString().isEmpty()
-                    && !binding.txtemail.getText().toString().isEmpty()
-                    && !binding.txtpassword.getText().toString().isEmpty()) {
+            String username = binding.txtusername.getText().toString().trim();
+            String email = binding.txtemail.getText().toString().trim();
+            String password = binding.txtpassword.getText().toString().trim();
 
-                progressDialog.show();
-                mAuth.createUserWithEmailAndPassword(
-                        binding.txtemail.getText().toString(),
-                        binding.txtpassword.getText().toString()
-                ).addOnCompleteListener(task -> {
-                    progressDialog.dismiss();
-                    if (task.isSuccessful()) {
-                        Users user = new Users(
-                                binding.txtusername.getText().toString(),
-                                binding.txtemail.getText().toString(),
-                                binding.txtpassword.getText().toString()
-                        );
-                        String id = task.getResult().getUser().getUid();
-                        database.getReference().child("Users").child(id).setValue(user);
-                        Toast.makeText(Signup.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
-                        navigateToMain();
-                    } else {
-                        Toast.makeText(Signup.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(Signup.this, "Please enter all fields", Toast.LENGTH_SHORT).show();
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(Signup.this, "Invalid email format", Toast.LENGTH_SHORT).show();
+            } else if (password.length() < 6) {
+                Toast.makeText(Signup.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(Signup.this, "Enter all credentials", Toast.LENGTH_SHORT).show();
+                progressDialog.show();
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(task -> {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                Users user = new Users(username, email, password);
+                                String id = task.getResult().getUser().getUid();
+                                database.getReference().child("Users").child(id).setValue(user);
+                                Toast.makeText(Signup.this, "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                                navigateToMain();
+                            } else {
+                                Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
             }
         });
 

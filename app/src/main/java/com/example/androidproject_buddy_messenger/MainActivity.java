@@ -2,15 +2,15 @@ package com.example.androidproject_buddy_messenger;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-
+import androidx.viewpager.widget.ViewPager;
 import com.example.androidproject_buddy_messenger.Adapter.FragmentAdapter;
 import com.example.androidproject_buddy_messenger.databinding.ActivityMainBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,8 +25,34 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
+
+        // Set up the ViewPager and FragmentAdapter
         binding.viewpager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
-        binding.tablayout.setupWithViewPager(binding.viewpager);
+
+        // Set up BottomNavigationView
+        BottomNavigationView bottomNavigationView = binding.bottomNavigation;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.nav_chats) {
+                binding.viewpager.setCurrentItem(0); // Navigate to the Chats fragment
+                return true;
+            }
+            return false;
+        });
+
+        // Sync BottomNavigationView with ViewPager
+        binding.viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
+
+            @Override
+            public void onPageSelected(int position) {
+                // Ensure the BottomNavigationView item is checked when a page is selected
+                bottomNavigationView.getMenu().getItem(0).setChecked(true);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {}
+        });
     }
 
     @Override
